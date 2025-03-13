@@ -3,9 +3,13 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from datetime import datetime
 from meteostat import Point, Daily
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
 
 # Set your Refinitiv API Key
-ek.set_app_key('95ce4c898667464ba3f23364d5c91adfc9811a60')
+ek.set_app_key(os.getenv("REFINITIV_API_KEY"))
 
 # Fetch Apple's daily closing stock price for 2023
 stock_df = ek.get_timeseries(
